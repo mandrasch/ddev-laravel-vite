@@ -1,1 +1,7 @@
-p{color:blue !important;}
+body {
+    font-family: sans-serif;
+    padding: 20px;
+}
+p {
+    color: blue !important;
+}

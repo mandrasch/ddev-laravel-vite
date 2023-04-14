@@ -16,10 +16,9 @@ ddev artisan key:generate
 ddev launch
 
 # install and run vite:
-ddev npm install
-ddev npm run dev
+ddev npm install && ddev npm run dev
 
-# reload browser, vite should work now
+# reload your browser, vite should work now 🥳
 ```
 
 After that, only `ddev npm run dev` is needed (after `ddev start`). 
@@ -124,6 +123,20 @@ Your styles will be imported like this:
 
 ```html
 <link rel="preload" as="style" href="https://ddev-laravel-vite.ddev.site/build/assets/app-3845d7e3.css" />
+```
+
+## TODOs
+
+- [ ] Support for Gitpod and Github Codespaces?
+- [ ] Automatically set the DDEV url in `vite.config.js` for local development?
+
+## Reset the demo
+
+```bash
+# delete without snapshot
+ddev delete -O
+# reset files, beware: deletes all files
+git clean -fdx
 ```
 
 ## Further resources
