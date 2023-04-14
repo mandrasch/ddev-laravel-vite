@@ -72,7 +72,7 @@ _See [Exposing Extra Ports via ddev-router](https://ddev.readthedocs.io/en/lates
             protocol: 'wss',
             // The host where the Vite dev server can be accessed
             // This will also force this host to be written to the public/hot file
-            host: 'ddev-laravel-vite.ddev.site', 
+            host: `${process.env.DDEV_HOSTNAME}`
         }
     },
 ```
@@ -148,6 +148,7 @@ git clean -fdx
 
 ## Further resources
 
+- See also https://github.com/tyler36/lara10-base-demo
 - https://github.com/mandrasch/ddev-laravel-breeze-vite/
 - There is also a ddev-addon for vite ([ddev-viteserve](https://github.com/torenware/ddev-viteserve))
 - Connect with the DDEV community on [Discord](https://discord.gg/hCZFfAMc5k)

@@ -21,7 +21,7 @@ export default defineConfig({
             protocol: 'wss',
             // The host where the Vite dev server can be accessed
             // This will also force this host to be written to the public/hot file
-            host: 'ddev-laravel-vite.ddev.site', // TODO: How can we get it automatically?
+            host: `${process.env.DDEV_HOSTNAME}`,
         }
     },
 
