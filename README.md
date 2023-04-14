@@ -148,9 +148,10 @@ git clean -fdx
 
 ## Further resources
 
+- https://github.com/mandrasch/ddev-laravel-breeze-vite/
 - There is also a ddev-addon for vite ([ddev-viteserve](https://github.com/torenware/ddev-viteserve))
 - Connect with the DDEV community on [Discord](https://discord.gg/hCZFfAMc5k)
 
-More experiments: https://my-ddev-lab.mandrasch.eu/
+More experiments and info about DDEV + vite: https://my-ddev-lab.mandrasch.eu/
 
 Thanks to the DDEV maintainers and DDEV open source community! 💚
