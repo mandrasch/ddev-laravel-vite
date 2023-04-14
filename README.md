@@ -133,21 +133,24 @@ Your styles will be imported like this:
 
 ## Technical background
 
-Laravel uses a combination of PHP config files (`@vite` blade directive) in combination with their NodeJS package [laravel-vite-plugin](https://www.npmjs.com/package/laravel-vite-plugin). For local development the file `public/hot` connects these two. See [DDEV vite](https://my-ddev-lab.mandrasch.eu/tutorials/nodejs-tools/vite.html) for more information.
+Laravel uses a combination of PHP config files (`@vite` blade directive) in combination with their NodeJS package [laravel-vite-plugin](https://www.npmjs.com/package/laravel-vite-plugin). For local development the file `public/hot` connects these two. 
+
+See [DDEV vite](https://my-ddev-lab.mandrasch.eu/tutorials/nodejs-tools/vite.html) for general information.
 
 ## Reset the demo
 
 ```bash
 # delete without snapshot
 ddev delete -O
-# reset files, beware: deletes all files
+# reset files, beware: deletes all untracked files!
 git clean -fdx
 ```
 
 ## Further resources
 
-There is also a ddev-addon for vite ([ddev-viteserve](https://github.com/torenware/ddev-viteserve)), which will run vite in the background.
+- There is also a ddev-addon for vite ([ddev-viteserve](https://github.com/torenware/ddev-viteserve))
+- Connect with the DDEV community on [Discord](https://discord.gg/hCZFfAMc5k)
 
-See https://my-ddev-lab.mandrasch.eu/ for more experiments, connect with the DDEV community on [Discord](https://discord.gg/hCZFfAMc5k). 
+More experiments: https://my-ddev-lab.mandrasch.eu/
 
-
+Thanks to the DDEV maintainers and DDEV open source community! 💚
