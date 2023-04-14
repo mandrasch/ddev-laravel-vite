@@ -41,7 +41,10 @@ ddev launch
 
 2. After that we need to expose the vite port of the DDEV (docker) container so that it can be reached from outside (= from our computer) while developing. The http_port does not really matter. 
 
+Add this to your `.ddev/config.yaml`:
+
 ```yaml 
+# .ddev/config.yaml
 web_extra_exposed_ports:
   - name: node-vite
     container_port: 5173
@@ -49,13 +52,11 @@ web_extra_exposed_ports:
     https_port: 5173
 ```
 
-A `ddev restart` is needed after that.
+⚠️  A `ddev restart` is needed after that.
 
-See [Exposing Extra Ports via ddev-router](https://ddev.readthedocs.io/en/latest/users/extend/customization-extendibility/#exposing-extra-ports-via-ddev-router) for more information. 
+_See [Exposing Extra Ports via ddev-router](https://ddev.readthedocs.io/en/latest/users/extend/customization-extendibility/#exposing-extra-ports-via-ddev-router) for more information. You'll need at least DDEV [v1.20.0](https://github.com/ddev/ddev/releases/tag/v1.20.0) for this, before it was done via docker-compose files ([example](https://github.com/torenware/ddev-viteserve/blob/master/docker-compose.viteserve.yaml))._
 
-⚠️ You'll need at least DDEV [v1.20.0](https://github.com/ddev/ddev/releases/tag/v1.20.0) for this, before it was done via docker-compose files ([example](https://github.com/torenware/ddev-viteserve/blob/master/docker-compose.viteserve.yaml)).
-
-3. The `vite.config.js` needs some modifications. These `.server` options were added:
+3. The `vite.config.js` needs some modifications as well. These `.server` options were added:
 
 ```js
  server: {
@@ -129,6 +130,10 @@ Your styles will be imported like this:
 
 - [ ] Support for Gitpod and Github Codespaces?
 - [ ] Automatically set the DDEV url in `vite.config.js` for local development?
+
+## Technical background
+
+Laravel uses a combination of PHP config files (`@vite` blade directive) in combination with their NodeJS package [laravel-vite-plugin](https://www.npmjs.com/package/laravel-vite-plugin). For local development the file `public/hot` connects these two. See [DDEV vite](https://my-ddev-lab.mandrasch.eu/tutorials/nodejs-tools/vite.html) for more information.
 
 ## Reset the demo
 
