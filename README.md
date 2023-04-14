@@ -68,10 +68,10 @@ _See [Exposing Extra Ports via ddev-router](https://ddev.readthedocs.io/en/lates
         hmr: {
             // TODO: Is this the best way to achieve that? 🤔
             // Force the Vite client to connect via SSL
-            // This will also force a "https://" URL in the hot file
+            // This will also force a "https://" URL in the public/hot file
             protocol: 'wss',
             // The host where the Vite dev server can be accessed
-            // This will also force this host to be written to the hot file
+            // This will also force this host to be written to the public/hot file
             host: 'ddev-laravel-vite.ddev.site', 
         }
     },
