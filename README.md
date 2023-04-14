@@ -56,7 +56,7 @@ web_extra_exposed_ports:
 
 _See [Exposing Extra Ports via ddev-router](https://ddev.readthedocs.io/en/latest/users/extend/customization-extendibility/#exposing-extra-ports-via-ddev-router) for more information. You'll need at least DDEV [v1.20.0](https://github.com/ddev/ddev/releases/tag/v1.20.0) for this, before it was done via docker-compose files ([example](https://github.com/torenware/ddev-viteserve/blob/master/docker-compose.viteserve.yaml))._
 
-3. The `vite.config.js` needs some modifications as well. These `.server` options were added:
+3. The [`vite.config.js`](https://github.com/mandrasch/ddev-laravel-vite/blob/main/vite.config.js) needs some modifications as well. These `.server` options were added:
 
 ```js
  server: {
