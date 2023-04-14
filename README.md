@@ -130,6 +130,6 @@ Your styles will be imported like this:
 
 There is also a ddev-addon for vite ([ddev-viteserve](https://github.com/torenware/ddev-viteserve)), which will run vite in the background.
 
-See https://my-ddev-lab.mandrasch.eu/ for more experiments, connect with the DDEV community on [Discord](https://discord.gg/hCZFfAMc5k).
+See https://my-ddev-lab.mandrasch.eu/ for more experiments, connect with the DDEV community on [Discord](https://discord.gg/hCZFfAMc5k). 
 
 
