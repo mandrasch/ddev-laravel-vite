@@ -17,6 +17,14 @@ use_dns_when_possible: true
 composer_version: "2"
 web_environment: []
 nodejs_version: "18"
+# Expose vite port
+# https://ddev.readthedocs.io/en/latest/users/extend/customization-extendibility/#exposing-extra-ports-via-ddev-router
+web_extra_exposed_ports:
+  - name: node-vite
+    container_port: 5173
+    http_port: 5172
+    https_port: 5173
+
 
 # Key features of ddev's config.yaml:
 
