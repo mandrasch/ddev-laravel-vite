@@ -1,3 +1,5 @@
+# ddev-laravel-vite
+
 Demo repository for Laravel v10 with [DDEV](https://ddev.com/), including vite support. 
 
 - Status: 🚧 Work in progress, was not tested for real sites yet.🚧
