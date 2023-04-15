@@ -128,8 +128,7 @@ Your styles will be imported like this:
 
 ## TODOs
 
-- [ ] Support for Gitpod and Github Codespaces?
-- [ ] Automatically set the DDEV url in `vite.config.js` for local development?
+- [ ] Support for Gitpod and Github Codespaces? (See https://github.com/tyler36/lara10-base-demo)
 
 ## Technical background
 
