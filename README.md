@@ -1,8 +1,7 @@
-Demo repository for Laravel v10 with [DDEV](https://ddev.com/), including vite support.
+Demo repository for Laravel v10 with [DDEV](https://ddev.com/), including vite support. 
 
-🚧 Work in progress. Disclaimer: I'm not sure if the vite config is the best option, but it works. This was not tested for real production sites yet, use with caution. 🚧
-
-Local URL: https://ddev-laravel-vite.ddev.site/
+- Status: 🚧 Work in progress, was not tested for real sites yet.🚧
+- Local URL: https://ddev-laravel-vite.ddev.site/
 
 ## Local setup 
 
