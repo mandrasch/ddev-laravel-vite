@@ -129,7 +129,7 @@ Your styles will be imported like this:
 
 ## TODOs
 
-- [ ] Support for Gitpod and Github Codespaces? (See https://github.com/tyler36/lara10-base-demo)
+- [ ] Support for Gitpod and Github Codespaces? (See https://github.com/tyler36/lara10-base-demo or https://github.com/mandrasch/ddev-craftcms-vite for DDEV + Vite + Codespaces example)
 
 ## Technical background
 
