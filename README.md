@@ -1,6 +1,6 @@
 # ddev-laravel-vite
 
-Demo repository for Laravel v10 with [DDEV](https://ddev.com/), including Vite support. 
+Demo repository for Laravel v11 with [DDEV](https://ddev.com/), including Vite support. 
 
 - Local URL: https://ddev-laravel-vite.ddev.site/
 
@@ -11,7 +11,7 @@ Tutorial: [Install Laravel with Vite support in DDEV (Docker)](https://dev.to/ma
 ```bash
 ddev start
 ddev composer install
-ddev exec "cp .env.example .env"
+# ddev exec "cp .env.example .env"
 ddev artisan key:generate
 
 # open in browser, vite does not work yet
