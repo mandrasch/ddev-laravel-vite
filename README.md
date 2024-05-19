@@ -9,19 +9,25 @@ Tutorial: [Install Laravel with Vite support in DDEV (Docker)](https://dev.to/ma
 ## Local setup 
 
 ```bash
+# automatically creates .env with correct db settings
 ddev start
-ddev composer install
-# ddev exec "cp .env.example .env"
+
+# install dependencies
+ddev composer install && ddev npm install
+
+# create key for .env
 ddev artisan key:generate
+
+# create db tables
+ddev artisan migrate
 
 # open in browser, vite does not work yet
 ddev launch
 
-# install and run vite:
-ddev npm install
+# and run vite:
 ddev npm run dev
 
-# reload your browser, vite should work now 🥳
+# reload your browser, Vite should work now 🥳
 ```
 
 After that, only `ddev npm run dev` is needed (after `ddev start`). 
@@ -147,7 +153,6 @@ git clean -fdx
 
 - See also https://github.com/tyler36/lara10-base-demo
 - https://github.com/mandrasch/ddev-laravel-breeze-vite/
-- There is also a ddev-addon for vite ([ddev-viteserve](https://github.com/torenware/ddev-viteserve))
 - Connect with the DDEV community on [Discord](https://discord.gg/hCZFfAMc5k)
 
 More experiments and info about DDEV + vite: https://my-ddev-lab.mandrasch.eu/
