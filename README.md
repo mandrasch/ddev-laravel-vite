@@ -151,7 +151,6 @@ git clean -fdx
 
 ## Further resources
 
-- See also https://github.com/tyler36/lara10-base-demo
 - https://github.com/mandrasch/ddev-laravel-breeze-vite/
 - Connect with the DDEV community on [Discord](https://discord.gg/hCZFfAMc5k)
 
