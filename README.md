@@ -1,9 +1,10 @@
 # ddev-laravel-vite
 
-Demo repository for Laravel v10 with [DDEV](https://ddev.com/), including vite support. 
+Demo repository for Laravel v10 with [DDEV](https://ddev.com/), including Vite support. 
 
-- Status: 🚧 Work in progress, was not tested for real sites yet.🚧
 - Local URL: https://ddev-laravel-vite.ddev.site/
+
+Tutorial: [Install Laravel with Vite support in DDEV (Docker)](https://dev.to/mandrasch/install-laravel-with-vite-support-in-ddev-docker-4lmh)
 
 ## Local setup 
 
@@ -17,7 +18,8 @@ ddev artisan key:generate
 ddev launch
 
 # install and run vite:
-ddev npm install && ddev npm run dev
+ddev npm install
+ddev npm run dev
 
 # reload your browser, vite should work now 🥳
 ```
@@ -31,8 +33,8 @@ After that, only `ddev npm run dev` is needed (after `ddev start`).
 ```bash
 # https://ddev.readthedocs.io/en/latest/users/quickstart/#laravel
 # (changed nodejs to be latest LTS, used ddev artisan directly)
-ddev config --project-type=laravel --docroot=public --create-docroot --php-version=8.1 --nodejs-version=18
-ddev composer create --prefer-dist --no-install --no-scripts laravel/laravel -y
+ddev config --project-type=laravel --docroot=public --php-version=8.1 --nodejs-version=18
+ddev composer create laravel/laravel
 ddev composer install
 ddev artisan key:generate
 
