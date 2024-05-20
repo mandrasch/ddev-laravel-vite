@@ -1,0 +1,75 @@
+image: drupalpod/drupalpod-gitpod-base:latest
+
+# ddev and composer are running as part of the prebuild
+# when starting a Gitpod workspace all docker images are ready
+tasks:
+  - name: prepare
+    init: |
+      time ddev debug download-images
+      time .gitpod/project-setup.sh
+    command: |
+      ddev start -y
+      ddev exec npm run dev 
+  - name: terminal
+    openMode: split-left
+    command: |
+      gp await-port 8080 && sleep 1 && gp preview $(gp url 8080)
+      echo "The system is ready"
+vscode:
+  extensions:
+    # PHP extensions.
+    - felixfbecker.php-debug
+    - wongjn.php-sniffer
+    - neilbrayfield.php-docblocker
+    - bmewburn.vscode-intelephense-client
+
+    # Prettier
+    - esbenp.prettier-vscode	
+
+    # TODO: blade
+
+    # Bash extensions.
+    - timonwong.shellcheck
+    - rogalmic.bash-debug
+
+ports:
+  # Used by ddev - local db clients
+  - port: 3306
+    onOpen: ignore
+  # Used by projector
+  - port: 6942
+    onOpen: ignore
+  # Used by Mailpit
+  - port: 8025
+    onOpen: ignore
+  # Direct-connect ddev-webserver port that is the main port
+  - port: 8080
+    onOpen: ignore
+  # Ignore host https port
+  - port: 8443
+    onOpen: ignore
+  # xdebug port
+  - port: 9003
+    onOpen: ignore
+  # projector port
+  - port: 9999
+    onOpen: open-browser
+
+github:
+  prebuilds:
+    # enable for the master/default branch (defaults to true)
+    master: true
+    # enable for all branches in this repo (defaults to false)
+    branches: true
+    # enable for pull requests coming from this repo (defaults to true)
+    pullRequests: true
+    # enable for pull requests coming from forks (defaults to false)
+    pullRequestsFromForks: true
+    # add a check to pull requests (defaults to true)
+    addCheck: true
+    # add a "Review in Gitpod" button as a comment to pull requests (defaults to false)
+    addComment: false
+    # add a "Review in Gitpod" button to the pull request's description (defaults to false)
+    addBadge: true
+    # add a label once the prebuild is ready to pull requests (defaults to false)
+    addLabel: true
