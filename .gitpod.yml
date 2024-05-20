@@ -6,7 +6,7 @@ tasks:
   - name: prepare
     init: |
       time ddev debug download-images
-      time .gitpod/project_setup.sh
+      time .gitpod/project-setup.sh
     command: |
       ddev start -y
       ddev exec npm run dev 
