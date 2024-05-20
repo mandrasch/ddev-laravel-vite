@@ -66,19 +66,29 @@ _See [Exposing Extra Ports via ddev-router](https://ddev.readthedocs.io/en/lates
 3. The [`vite.config.js`](https://github.com/mandrasch/ddev-laravel-vite/blob/main/vite.config.js) needs some modifications as well. These `.server` options were added:
 
 ```js
- server: {
-        // respond to all network requests (same as '0.0.0.0')
-        host: true,
-        // we need a strict port to match on PHP side
+import laravel from 'laravel-vite-plugin';
+
+const port = 5173;
+const origin = `${process.env.DDEV_PRIMARY_URL}:${port}`;
+
+export default defineConfig({
+    plugins: [
+        laravel({
+            input: ['resources/css/app.css', 'resources/js/app.js'],
+            refresh: true,
+        }),
+    ],
+    server: {
+        // respond to all network requests
+        host: '0.0.0.0',
+        port: port,
         strictPort: true,
-        port: 5173,
-        hmr: {
-            // Force the Vite client to connect via SSL
-            // This will also force a "https://" URL in the public/hot file
-            protocol: 'wss',
-            host: `${process.env.DDEV_HOSTNAME}`
-        }
-    },
+        // Defines the origin of the generated asset URLs during development,
+        // this will also be used for the public/hot file (devserver URL)
+        origin: origin
+    }
+});
+
 ```
 
 4. Then we need to follow the [Asset Bundling (Vite)](https://laravel.com/docs/10.x/vite#loading-your-scripts-and-styles) documentation and add the output to the `welcome.blade.php` template.
