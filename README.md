@@ -6,9 +6,15 @@ Demo repository for Laravel v11 with [DDEV](https://ddev.com/), including Vite s
 
 - Local URL: https://ddev-laravel-vite.ddev.site/
 
-Tutorial: [Install Laravel with Vite support in DDEV (Docker)](https://dev.to/mandrasch/install-laravel-with-vite-support-in-ddev-docker-4lmh)
+Tutorial: [Install Laravel with Vite support in DDEV (Docker)](https://dev.to/mandrasch/install-laravel-with-vite-support-in-ddev-docker-4lmh). 
 
-## Local setup 
+You can run this 
+
+1. on your local laptop
+1. via Gitpod in your browser
+1. via GitHub Codespaces (experimental)
+
+## 1. Local setup 
 
 ```bash
 # automatically creates .env with correct db settings
@@ -34,7 +40,39 @@ ddev npm run dev
 
 After that, only `ddev npm run dev` is needed (after `ddev start`). 
 
+## 2. Gitpod
+
+[![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#https://github.com/mandrasch/ddev-laravel-vite/)
+
+## 3. Setup in Codespaces
+
+⚠️ Disclaimer - May 2024: Codespaces is currently a bit buggy on startups, see https://github.com/devcontainers/features/issues/977.
+
+[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/mandrasch/ddev-laravel-vite)
+
+1. Click the button
+1. Wait for `postCreateCommand.sh` to be finished
+1. Switch Vite port to public in ports tab (can't be automated currently)
+1. Run `ddev npm run dev`
+1. Open site (web http) via ports tab (or use `ddev launch` in future (currently small bug to be fixed)).
+
+The port switch can take a minute. Just wait if it doesn't work instantly.
+
+Access control panel via `/admin` (or use in future `ddev launch /admin`, when small bug is fixed in ddev).
+
+Login via user `admin` and password `newPassword` .
+
+### Troubleshooting
+
+See creation log via 'CMD + P > View creation log' if errors occur. Unfortunately there is no general error notification when this fails. But if there is only one port in the ports tab installation did not succeed. Sometimes only a full rebuild solve the problems, use:
+
+- `SHIFT + CMD + P > Codespaces: Full rebuild` 
+
+Containers and db will be deleted.
+
 ## How was this created?
+
+Tutorial: [Install Laravel with Vite support in DDEV (Docker)](https://dev.to/mandrasch/install-laravel-with-vite-support-in-ddev-docker-4lmh). 
 
 1. Installed Laravel in DDEV via [quickstart documentation](https://ddev.readthedocs.io/en/latest/users/quickstart/#laravel).
 

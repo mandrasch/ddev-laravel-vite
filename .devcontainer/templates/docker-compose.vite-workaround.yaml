@@ -1,0 +1,7 @@
+# See postCreateCommand.sh for more information - expose the Vite port without using 
+# ddev router (disabled on Gitpod/Codespaces,etc.). This file should not be committed 
+# to git since it conflicts with local DDEV usage (with ddev router)
+services:
+  web:
+    ports:
+    - 5173:5173

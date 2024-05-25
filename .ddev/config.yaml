@@ -12,10 +12,10 @@ database:
 use_dns_when_possible: true
 composer_version: "2"
 web_environment:
+    - GITPOD_WORKSPACE_URL
     - CODESPACES
     - CODESPACE_NAME
     - GITHUB_CODESPACES_PORT_FORWARDING_DOMAIN
-    - GITPOD_WORKSPACE_URL
 corepack_enable: false
 nodejs_version: "20.13.1"
 web_extra_exposed_ports:

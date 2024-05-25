@@ -1,0 +1,35 @@
+{
+  // https://hub.docker.com/_/microsoft-devcontainers-universal
+  // this will also install docker-in-docker
+  "image": "mcr.microsoft.com/devcontainers/universal:2",
+  "features": {
+    "ghcr.io/ddev/ddev/install-ddev:latest": {}
+  },
+  // TODO: is this still necessary?
+  // https://code.visualstudio.com/docs/devcontainers/containers#_always-forwarding-a-port
+  "forwardPorts": [5174],
+  // these are just labels for codespaces ports tab, these will not create ports by default
+  "portsAttributes": {
+    "3306": {
+      "label": "database"
+    },
+    "8027": {
+      "label": "mailhog"
+    },
+    "8036": {
+      "label": "phpmyadmin"
+    },
+    "8080": {
+      "label": "web http"
+    },
+    "8443": {
+      "label": "web https"
+    },
+    // our custom vite port for ddev + codespaces
+    "5174":{
+      "label": "vite"
+    }
+  },
+
+  "postCreateCommand": "chmod +x ./.devcontainer/postCreateCommand.sh && ./.devcontainer/postCreateCommand.sh"
+}
