@@ -1,0 +1,37 @@
+# Small helper: Verify that install runs without errors
+on:
+  push:
+    branches: [development, main]
+    # Energy saving: Don't trigger this for updated README file only
+    paths-ignore:
+      - '**/README.md'
+  pull_request:
+    branches: [development, main]
+    paths-ignore:
+      - '**/README.md'
+
+name: verifyInstall
+jobs:
+  verifyInstall:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      # Install DDEV via https://github.com/ddev/github-action-setup-ddev
+      - uses: ddev/github-action-setup-ddev@v1
+
+      # Output installed ddev version
+      - run: ddev -v
+
+      # Start the DDEV project, this will copy .env.example to .env
+      # and insert correct db connection settings for DDEV automagically
+      - run: ddev start -y
+
+      # Install dependencies
+      - name: "install dependencies"
+        run: |
+          ddev composer install
+          ddev npm install
+          ddev artisan key:generate
+          ddev artisan migrate
+          ddev npm run build
