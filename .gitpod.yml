@@ -1,33 +1,40 @@
-image: drupalpod/drupalpod-gitpod-base:latest
+# ddev v1.23.1
+# https://github.com/ddev/ddev-gitpod-launcher
+# https://hub.docker.com/r/ddev/ddev-gitpod-base
+image: ddev/ddev-gitpod-base:20240516
+
+# Based on 
+# https://github.com/ddev/ddev-gitpod-launcher/blob/main/.gitpod.yml
+# https://github.com/shaal/DrupalPod/blob/main/.gitpod.yml
 
 # ddev and composer are running as part of the prebuild
 # when starting a Gitpod workspace all docker images are ready
 tasks:
   - name: prepare
     init: |
-      time ddev debug download-images
-      chmod +x .gitpod/project-setup.sh
-      time .gitpod/project-setup.sh
+      ddev debug download-images
     command: |
-      ddev start -y
-      ddev exec npm run dev 
+      chmod +x .gitpod/project-setup.sh
+      .gitpod/project-setup.sh
+      
+  # TODO: automatically execute "ddev npm run dev" here and show it in terminal?
   - name: terminal
     openMode: split-left
     command: |
-      gp await-port 8080 && sleep 1 && gp preview $(gp url 8080)
-      echo "The system is ready"
+      gp ports await 8080 && sleep 1 && gp preview $(gp url 8080)
+      echo "The system is ready, you can run 'ddev npm run dev' now ..."
+      ddev npm run dev
+
 vscode:
   extensions:
     # PHP extensions.
     - felixfbecker.php-debug
-    - wongjn.php-sniffer
-    - neilbrayfield.php-docblocker
     - bmewburn.vscode-intelephense-client
 
     # Prettier
     - esbenp.prettier-vscode	
 
-    # TODO: blade
+    # TODO: blade extension
 
     # Bash extensions.
     - timonwong.shellcheck
@@ -55,22 +62,3 @@ ports:
   # projector port
   - port: 9999
     onOpen: open-browser
-
-github:
-  prebuilds:
-    # enable for the master/default branch (defaults to true)
-    master: true
-    # enable for all branches in this repo (defaults to false)
-    branches: true
-    # enable for pull requests coming from this repo (defaults to true)
-    pullRequests: true
-    # enable for pull requests coming from forks (defaults to false)
-    pullRequestsFromForks: true
-    # add a check to pull requests (defaults to true)
-    addCheck: true
-    # add a "Review in Gitpod" button as a comment to pull requests (defaults to false)
-    addComment: false
-    # add a "Review in Gitpod" button to the pull request's description (defaults to false)
-    addBadge: true
-    # add a label once the prebuild is ready to pull requests (defaults to false)
-    addLabel: true

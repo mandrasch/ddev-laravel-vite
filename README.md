@@ -1,5 +1,7 @@
 # ddev-laravel-vite
 
+[![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#https://github.com/mandrasch/ddev-laravel-vite/tree/feat-add-gitpod])
+
 Demo repository for Laravel v11 with [DDEV](https://ddev.com/), including Vite support. 
 
 - Local URL: https://ddev-laravel-vite.ddev.site/
