@@ -10,13 +10,20 @@ Tutorial: [Install Laravel with Vite support in DDEV (Docker)](https://dev.to/ma
 
 You can run this 
 
-1. on your local laptop
-1. via Gitpod in your browser
-1. via GitHub Codespaces (experimental)
+1. on [your local laptop](#1-local-setup)
+1. via [Gitpod in your browser](#2-gitpod)
+1. via [Codespaces (experimental)](#3-codespaces-experimental)
 
 ## 1. Local setup 
 
+Install [DDEV](https://ddev.com/get-started/) and run the following commands:
+
 ```bash
+git clone https://github.com/mandrasch/ddev-laravel-vite.git
+# or git clone git@github.com:mandrasch/ddev-laravel-vite.git
+
+cd ddev-laravel-vite/
+
 # automatically creates .env with correct db settings
 ddev start
 
@@ -29,22 +36,28 @@ ddev artisan key:generate
 # create db tables
 ddev artisan migrate
 
-# open in browser, vite does not work yet
+# Open your website in browser, ...
 ddev launch
 
-# and run vite:
+# start the local dev server (Vite), ...
 ddev npm run dev
 
-# reload your browser, Vite should work now 🥳
+# ... and hit reload in browser. Vite should work now 🥳
 ```
 
 After that, only `ddev npm run dev` is needed (after `ddev start`). 
 
+Your site is accessible via https://ddev-laravel-vite.ddev.site.
+
+You could also import a database dump via `ddev import-db --file=dump.sql.gz` or use [`ddev pull`](https://ddev.readthedocs.io/en/stable/users/providers/) to setup a project. Use `ddev sequelace` to view your database.
+
 ## 2. Gitpod
+
+Just hit the button, wait for the initial setup and start developing:
 
 [![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#https://github.com/mandrasch/ddev-laravel-vite/)
 
-## 3. Setup in Codespaces
+## 3. Codespaces (experimental)
 
 ⚠️ Disclaimer - May 2024: Codespaces is currently a bit buggy on startups, see https://github.com/devcontainers/features/issues/977.
 
@@ -180,16 +193,6 @@ Your styles will be imported like this:
 <link rel="preload" as="style" href="https://ddev-laravel-vite.ddev.site/build/assets/app-3845d7e3.css" />
 ```
 
-## TODOs
-
-- [ ] Support for Gitpod and Github Codespaces? (See https://github.com/tyler36/lara10-base-demo or https://github.com/mandrasch/ddev-craftcms-vite for DDEV + Vite + Codespaces example)
-
-## Technical background
-
-Laravel uses a combination of PHP config files (`@vite` blade directive) in combination with their NodeJS package [laravel-vite-plugin](https://www.npmjs.com/package/laravel-vite-plugin). For local development the file `public/hot` connects these two. 
-
-See [DDEV vite](https://my-ddev-lab.mandrasch.eu/tutorials/nodejs-tools/vite.html) for general information.
-
 ## Reset the demo
 
 ```bash
@@ -197,13 +200,19 @@ See [DDEV vite](https://my-ddev-lab.mandrasch.eu/tutorials/nodejs-tools/vite.htm
 ddev delete -O
 # reset files, beware: deletes all untracked files!
 git clean -fdx
+# reset files, but not .ddev
+git clean -fdx -e .ddev/
 ```
+
+## Acknowledgements
+
+Thanks to the DDEV maintainers and DDEV open source community, especially [Ofer Shaal](https://github.com/shaal) for providing DrupalPod, [Randy Fay](https://github.com/rfay) and [tyler36](https://github.com/tyler36) for suggestions and feedback! 💚
 
 ## Further resources
 
-- https://github.com/mandrasch/ddev-laravel-breeze-vite/
-- Connect with the DDEV community on [Discord](https://discord.gg/hCZFfAMc5k)
+- Other Laravel demos: https://github.com/mandrasch?tab=repositories&q=ddev-laravel&type=&language=&sort=
+- https://github.com/tyler36/lara10-base-demo
 
-More experiments and info about DDEV + vite: https://my-ddev-lab.mandrasch.eu/
+More experiments and notes about DDEV + vite: https://my-ddev-lab.mandrasch.eu/
 
-Thanks to the DDEV maintainers and DDEV open source community! 💚
+Connect with the DDEV community on [Discord](https://discord.gg/hCZFfAMc5k)
