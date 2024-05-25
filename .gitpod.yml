@@ -1,0 +1,68 @@
+# ddev v1.23.1
+# https://github.com/ddev/ddev-gitpod-launcher
+# https://hub.docker.com/r/ddev/ddev-gitpod-base
+image: ddev/ddev-gitpod-base:20240516
+
+# Based on 
+# https://github.com/ddev/ddev-gitpod-launcher/blob/main/.gitpod.yml
+# https://github.com/shaal/DrupalPod/blob/main/.gitpod.yml
+
+# ddev and composer are running as part of the prebuild
+# when starting a Gitpod workspace all docker images are ready
+tasks:
+  - name: prepare
+    init: |
+      ddev debug download-images
+    command: |
+      chmod +x .gitpod/project-setup.sh
+      .gitpod/project-setup.sh
+      gp ports await 8080 && sleep 1 && gp preview $(gp url 8080)
+      echo "The system is ready, happy developing!"
+      code resources/css/app.css
+      ddev npm run dev
+      
+vscode:
+  extensions:
+    # PHP extensions.
+    - felixfbecker.php-debug
+    - bmewburn.vscode-intelephense-client
+
+    # Prettier
+    - esbenp.prettier-vscode	
+
+    # Blade
+    - shufo.vscode-blade-formatter
+
+    # Bash extensions.
+    - timonwong.shellcheck
+    - rogalmic.bash-debug
+
+ports:
+  # Vite port
+  - port: 5173
+    onOpen: ignore
+    visibility: public
+  # Used by ddev - local db clients
+  - port: 3306
+    onOpen: ignore
+  # Used by projector
+  - port: 6942
+    onOpen: ignore
+  # Used by Mailpit
+  - port: 8025
+    onOpen: ignore
+  # Mailpit web UI
+  - port: 8027
+    onOpen: ignore
+  # Direct-connect ddev-webserver port that is the main port
+  - port: 8080
+    onOpen: ignore
+  # Ignore host https port
+  - port: 8443
+    onOpen: ignore
+  # xdebug port
+  - port: 9003
+    onOpen: ignore
+  # projector port
+  - port: 9999
+    onOpen: open-browser

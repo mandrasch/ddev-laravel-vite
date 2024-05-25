@@ -1,0 +1,10 @@
+# Normally expose port 5173 for Vite in .ddev/config.yaml, but ddev-router is not used  on Gitpod. The 
+# Routing is handled by Gitpod itself. Therefore we will create an additional config file for DDEV 
+# which will expose port 5173 without ddev-router. 
+
+# This file should not be committed to git since it conflicts with local usage of DDEV (with ddev router)
+# - you could also use another port like 5174 to avoid conflicts and adjust vite.config.js accordingly
+services:
+  web:
+    ports:
+    - 5173:5173
