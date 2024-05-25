@@ -41,6 +41,9 @@ vscode:
     - rogalmic.bash-debug
 
 ports:
+  # Vite port
+  - port: 5173
+    onOpen: ignore
   # Used by ddev - local db clients
   - port: 3306
     onOpen: ignore
@@ -49,6 +52,9 @@ ports:
     onOpen: ignore
   # Used by Mailpit
   - port: 8025
+    onOpen: ignore
+  # Mailpit web UI
+  - port: 8027
     onOpen: ignore
   # Direct-connect ddev-webserver port that is the main port
   - port: 8080

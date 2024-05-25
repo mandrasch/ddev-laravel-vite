@@ -1,5 +1,15 @@
-import { defineConfig } from 'vite';
+import { defineConfig, loadConfigFromFile } from 'vite';
 import laravel from 'laravel-vite-plugin';
+
+const port = 5173;
+let origin = `${process.env.DDEV_PRIMARY_URL}:${port}`;
+
+// env var needs to be passed to ddev via 'web_environment:' config
+if(process.env.GITPOD_WORKSPACE_URL){
+    origin = `${process.env.GITPOD_WORKSPACE_URL}`;
+    origin = origin.replace('https://', 'https://5173-');
+    console.log(`Gitpod detected, set origin to ${origin}`);
+}
 
 export default defineConfig({
     plugins: [
@@ -9,16 +19,12 @@ export default defineConfig({
         }),
     ],
     server: {
-        // respond to all network requests (same as '0.0.0.0')
-        host: true,
-        // we need a strict port to match on PHP side
+        // respond to all network requests
+        host: '0.0.0.0',
+        port: port,
         strictPort: true,
-        port: 5173,
-        hmr: {
-            // Force the Vite client to connect via SSL
-            // This will also force a "https://" URL in the public/hot file
-            protocol: 'wss',
-            host: `${process.env.DDEV_HOSTNAME}`
-        }
+        // Defines the origin of the generated asset URLs during development,
+        // this will also be used for the public/hot file (Vite devserver URL)
+        origin: origin
     }
 });

@@ -11,7 +11,11 @@ database:
     version: "8.0"
 use_dns_when_possible: true
 composer_version: "2"
-web_environment: []
+web_environment:
+    - CODESPACES
+    - CODESPACE_NAME
+    - GITHUB_CODESPACES_PORT_FORWARDING_DOMAIN
+    - GITPOD_WORKSPACE_URL
 corepack_enable: false
 web_extra_exposed_ports:
   - name: vite
