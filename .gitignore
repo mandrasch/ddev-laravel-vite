@@ -20,4 +20,4 @@ yarn-error.log
 /.vscode
 
 # only needed for gitpod and codespaces
-ddev/docker-compose.vite-without-ddev-router.yaml
+.ddev/docker-compose.vite-workaround.yaml

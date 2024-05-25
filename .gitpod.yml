@@ -29,7 +29,8 @@ vscode:
     # Prettier
     - esbenp.prettier-vscode	
 
-    # TODO: blade extension
+    # Blade
+    - shufo.vscode-blade-formatter
 
     # Bash extensions.
     - timonwong.shellcheck

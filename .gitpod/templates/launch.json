@@ -5,6 +5,22 @@
     "version": "0.2.0",
     "configurations": [
     {
+        "label": "Auto-open css file",
+        "type": "shell",
+        "command": "code resources/css/app.css",
+        "runOptions": {
+            "runOn": "folderOpen"
+        },
+        "presentation": {
+            "echo": true,
+            "reveal": "silent",
+            "focus": false,
+            "panel": "shared",
+            "showReuseMessage": false,
+            "clear": false
+        }
+    },
+    {
         "name": "Listen for XDebug",
         "type": "php",
         "request": "launch",
