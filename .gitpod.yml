@@ -16,15 +16,10 @@ tasks:
     command: |
       chmod +x .gitpod/project-setup.sh
       .gitpod/project-setup.sh
-      
-  # TODO: automatically execute "ddev npm run dev" here and show it in terminal?
-  - name: terminal
-    openMode: split-left
-    command: |
       gp ports await 8080 && sleep 1 && gp preview $(gp url 8080)
-      echo "The system is ready, you can run 'ddev npm run dev' now ..."
+      echo "The system is ready, happy developing!"
       ddev npm run dev
-
+      
 vscode:
   extensions:
     # PHP extensions.

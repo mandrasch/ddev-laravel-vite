@@ -30,5 +30,3 @@ ddev composer install
 ddev npm install
 ddev artisan key:generate
 ddev artisan migrate
-
-# TODO: reset DDEV_NONINTERACTIVE it after finishing?
