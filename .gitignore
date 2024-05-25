@@ -19,5 +19,5 @@ yarn-error.log
 /.idea
 /.vscode
 
-# for gitpod Vite port expose
-.ddev/docker-compose.codespaces-vite.yaml
+# only needed for gitpod and codespaces
+ddev/docker-compose.vite-without-ddev-router.yaml

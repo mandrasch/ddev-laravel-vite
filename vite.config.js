@@ -1,7 +1,7 @@
 import { defineConfig, loadConfigFromFile } from 'vite';
 import laravel from 'laravel-vite-plugin';
 
-const port = 5173;
+let port = 5173;
 let origin = `${process.env.DDEV_PRIMARY_URL}:${port}`;
 
 // env var needs to be passed to ddev via 'web_environment:' config

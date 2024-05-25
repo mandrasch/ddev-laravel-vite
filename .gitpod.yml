@@ -44,6 +44,7 @@ ports:
   # Vite port
   - port: 5173
     onOpen: ignore
+    visibility: public
   # Used by ddev - local db clients
   - port: 3306
     onOpen: ignore

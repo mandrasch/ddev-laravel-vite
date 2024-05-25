@@ -9,17 +9,17 @@ export DDEV_NONINTERACTIVE=true
 
 # Workaround for vite:
 # We expose port 5174 for Vite in .ddev/config.yaml, but ddev-router is not used  on Gitpod. The 
-# Routing is handled by codespaces itself. Therefore we will create an additional config file for DDEV 
-# which will expose port 5174.
+# Routing is handled by Gitpod itself. Therefore we will create an additional config file for DDEV 
+# which will expose port 5173 without ddev-router.
 
-if [ ! -f ".ddev/docker-compose.codespaces-vite.yaml" ]; then
+if [ ! -f ".ddev/docker-compose.vite-without-ddev-router.yaml" ]; then
     echo "Creating docker compose file to expose Vite port on Gitpod ..."
     # info: this file should not be commited to git since it shouldn't be used on local DDEV
-    cat >.ddev/docker-compose.codespaces-vite.yaml <<EOL
+    cat >.ddev/docker-compose.vite-without-ddev-router.yaml <<EOL
 services:
   web:
     ports:
-    - 5174:5174
+    - 5173:5173
 EOL
 fi
 
