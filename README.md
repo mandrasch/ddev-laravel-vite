@@ -4,7 +4,7 @@
 
 Demo repository for Laravel v11 with [DDEV](https://ddev.com/), including Vite support. 
 
-Based on the tutorial [Install Laravel with Vite support in DDEV (Docker)](https://dev.to/mandrasch/install-laravel-with-vite-support-in-ddev-docker-4lmh). 
+Based on the tutorial [Install Laravel with Vite support in DDEV (Docker)](https://dev.to/mandrasch/install-laravel-with-vite-support-in-ddev-docker-4lmh). See https://ddev.com/blog/working-with-vite-in-ddev/ as well for all information.
 
 You can run this 
 
